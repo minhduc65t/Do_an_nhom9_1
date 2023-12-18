@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Do_an_nhom9</string>
+   <!--btn -->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Lets Get Started</string>
+    <!-- Strings for dashboard-->
+    <string name="hotels">Hotels</string>
+    <string name="logo_name">Khoot</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Airports</string>
+    <!-- titles and Descriptions -->
+    <string name="featured_locations">All Featured Locations</string>
+    <string name="featured_locations_description">All the locations that are featured and have the top demand in town!</string>
+    <string name="most_viewed_location">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View all</string>
+    <string name="search_text">Search</string>
+
+
+
 </resources>
