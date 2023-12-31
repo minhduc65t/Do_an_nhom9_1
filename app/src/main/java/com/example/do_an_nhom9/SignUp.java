@@ -2,9 +2,11 @@ package com.example.do_an_nhom9;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +48,15 @@ public class SignUp extends AppCompatActivity {
                 UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNumber, password);
 
                 reference.child(username).setValue(helperClass);
+            }
+        });
+
+        regToLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(SignUp.this, Login.class);
+                startActivity(intent);
             }
         });
 
@@ -93,7 +104,7 @@ public class SignUp extends AppCompatActivity {
         String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         if (val.isEmpty()){
-            regName.setError("Field cannot be empty");
+            regName.setError("Không được để trống");
             return false;
         }
         else if (!val.matches(emailPattern)){
@@ -110,7 +121,7 @@ public class SignUp extends AppCompatActivity {
         String val = regName.getEditText().getText().toString();
 
         if (val.isEmpty()){
-            regName.setError("Field cannot be empty");
+            regName.setError("Không được để trống");
             return false;
         }
         else {

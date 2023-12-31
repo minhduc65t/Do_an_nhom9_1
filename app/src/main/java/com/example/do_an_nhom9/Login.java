@@ -25,6 +25,7 @@ import android.util.Pair;
 
 public class Login extends AppCompatActivity {
 
+
     Button callSignUp,login_btn;
     ImageView image;
     TextView logoText, sloganText;

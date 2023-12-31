@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfile">
+    tools:context=".UserProfile"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:background="#E8E2AC"
+            android:background="#000"
             android:padding="20dp">
 
             <ImageView
@@ -22,7 +23,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/logo_book" />
+                android:src="@drawable/logo" />
 
             <TextView
                 android:id="@+id/full_name_field"
@@ -34,6 +35,7 @@
                 android:fontFamily="serif"
                 android:includeFontPadding="false"
                 android:text="Tran Minh Duc"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
             <TextView
@@ -46,6 +48,7 @@
                 android:fontFamily="serif"
                 android:includeFontPadding="false"
                 android:text="tran minh duc"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
 
@@ -68,13 +71,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#4CAF50"
                     android:padding="5dp">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/logo_book" />
+                        android:src="@drawable/logo" />
 
                     <TextView
                         android:id="@+id/payment_label"
@@ -111,13 +115,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#4CAF50"
                     android:padding="5dp">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/logo_book" />
+                        android:src="@drawable/logo" />
 
                     <TextView
                         android:id="@+id/booking_label"
@@ -216,10 +221,9 @@
                 android:id="@+id/btn_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#E8E2AC"
+                android:backgroundTint="#4CAF50"
                 android:fontFamily="serif"
-                android:text="Update" >
-            </Button>
+                android:text="Update"></Button>
 
         </LinearLayout>
     </LinearLayout>

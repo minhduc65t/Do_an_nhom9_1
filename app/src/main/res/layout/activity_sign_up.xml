@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".SignUp"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="#f5f5f5"
     android:padding="20dp">
     
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/logo_book"
+        android:src="@drawable/logo"
         android:transitionName="logo_image"/>
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000"
-        android:text="Welcome"
+        android:text="Xin chào"
         android:transitionName="logo_text"
         android:textSize="40sp"
         android:fontFamily="serif"
@@ -27,7 +27,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SingUp to start your new Journey"
+        android:text="Đăng kí tài khoản, vào Ycho"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:transitionName="logo_desc"/>
     <LinearLayout
@@ -113,16 +114,18 @@
             android:id="@+id/reg_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000"
+            android:backgroundTint="#4CAF50"
             android:onClick="registerUser"
-            android:text="Sign in"
+            android:text="Đăng kí"
             android:textColor="#fff"
+            android:textColorHighlight="#4CAF50"
+            android:textColorLink="#4CAF50"
             android:transitionName="btn_tran" />
         <Button
             android:id="@+id/reg_login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already hava an account? LogIn"
+            android:text="Đã có tài khoản, Đăng nhập"
             android:background="#00000000"
             android:textColor="@color/black"
             android:transitionName="signup_login_tran"/>

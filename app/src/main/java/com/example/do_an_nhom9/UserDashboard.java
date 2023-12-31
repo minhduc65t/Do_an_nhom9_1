@@ -1,12 +1,21 @@
 package com.example.do_an_nhom9;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.do_an_nhom9.HomeAdapter.FeaturedAdapter;
 import com.example.do_an_nhom9.HomeAdapter.FeaturedHelper;
@@ -14,15 +23,29 @@ import com.example.do_an_nhom9.HomeAdapter.CategoriesAdapter;
 import com.example.do_an_nhom9.HomeAdapter.CategoriesHelper;
 import com.example.do_an_nhom9.HomeAdapter.MostViewedAdapter;
 import com.example.do_an_nhom9.HomeAdapter.MostViewedHelper;
+import com.google.android.material.navigation.NavigationView;
+
 
 import java.util.ArrayList;
 
-public class UserDashboard extends AppCompatActivity {
+public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    static final float END_SCALE = 0.7f;
     RecyclerView featuredRecycler, mostViewedRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
 
+    //Drawer View
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+
+
+
+
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
+    ImageView menuIcon;
+    LinearLayout contentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +56,82 @@ public class UserDashboard extends AppCompatActivity {
         featuredRecycler = findViewById(R.id.featured_recycler);
         mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
         categoriesRecycler = findViewById(R.id.categories_recycler);
+        menuIcon = findViewById(R.id.menu_icon);
+        contentView = findViewById(R.id.content);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
+        
+
+        navigationDrawer();
+
 
         featuredRecycler();
         mostViewedRecycler();
         categoriesRecycler();
+
+
+    }
+
+
+    private void navigationDrawer() {
+
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }
+                else drawerLayout.openDrawer(GravityCompat.START);
+
+            }
+        });
+
+        animateNavigationDrawer();
+    }
+
+    private void animateNavigationDrawer() {
+
+       // drawerLayout.setScrimColor(getResources().getColor(R.color.green));
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Scale the View based on current slide offset
+                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final float offsetScale = 1 - diffScaledOffset;
+                contentView.setScaleX(offsetScale);
+                contentView.setScaleY(offsetScale);
+                // Translate the View, accounting for the scaled width
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                contentView.setTranslationX(xTranslation);
+            }
+        });
+    }
+
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else
+            super.onBackPressed();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.nav_profile) {
+            Intent intent = new Intent(getApplicationContext(), UserProfile.class);
+            startActivity(intent);
+        }
+        return true;
     }
 
     private void featuredRecycler() {
@@ -83,4 +178,9 @@ public class UserDashboard extends AppCompatActivity {
         adapter = new MostViewedAdapter(mostViewedLocations);
         mostViewedRecycler.setAdapter(adapter);
     }
+
+
+
+
+
 }

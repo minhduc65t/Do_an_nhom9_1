@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            android:icon="@drawable/baseline_dashboard_24" />
+        <item
+            android:id="@+id/nav_search"
+            android:title="@string/search"
+            android:icon="@drawable/baseline_search_24" />
+        <item
+            android:id="@+id/nav_profile"
+            android:title="@string/profile"
+            android:icon="@drawable/baseline_category_24" />
+        <item
+            android:id="@+id/nav_add_missing_place"
+            android:title="@string/add_missing_place"
+            android:icon="@drawable/baseline_place_24" />
+
+    </group>
+
+    <item android:title="Profile">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/login"
+                    android:icon="@drawable/baseline_login_24" />
+                <item
+                    android:id="@+id/nav_profilea"
+                    android:title="@string/profile"
+                    android:icon="@drawable/baseline_person_24" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/logout"
+                    android:icon="@drawable/baseline_logout_24" />
+
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Categories">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Share">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+            </group>
+        </menu>
+    </item>
+
+
+</menu>
